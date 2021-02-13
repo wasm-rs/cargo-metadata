@@ -19,11 +19,11 @@ targets = ["wasm32-unknown-unknown"]
 # (default: `[]`)
 required-features = ["wasm"]
 
-# Features that WILL NOT work on any WebAssembly target (might not compile, pass test or
+# Features that WILL NOT work on any WebAssembly target (might not compile, pass tests or
 # function correctly)
-# ANY `excluded-features` should be avoided in order for the crate to work properly on all WebAssembly targets (OR condition)
+# ANY `unsupported-features` should be avoided in order for the crate to work properly on all WebAssembly targets (OR condition)
 # (default: `[]`)
-excluded-features = ["server"]
+unsupported-features = ["server"]
 
 # This allows to specify fine-grained indication of readiness per target
 [package.metadata.wasm.rs.target.'wasm32-unknown-unknown']
@@ -41,9 +41,9 @@ limited-functionality = "certain functionality is disabled"
 # (default: `[]`)
 required-features = ["wasm-unknown"]
 
-# Features that WILL NOT work on this target (might not compile, pass test or
+# Features that WILL NOT work on this target (might not compile, pass tests or
 # function correctly)
-# Amends, but not overrides `package.metadata.wasm.rs.excluded-features`
+# Amends, but not overrides `package.metadata.wasm.rs.unsupported-features`
 # (default: `[]`)
-excluded-features = ["wasm-emscripten"]
+unsupported-features = ["wasm-emscripten"]
 ```
