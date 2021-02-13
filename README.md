@@ -27,12 +27,6 @@ unsupported-features = ["server"]
 
 # This allows to specify fine-grained indication of readiness per target
 [package.metadata.wasm.rs.target.'wasm32-unknown-unknown']
-# Default: `true` (if the target is listed in `package.metadata.wasm.rs.targets), otherwise `false`)
-compiles = true
-# Default: `true` (if the target is listed in `package.metadata.wasm.rs.targets), otherwise `false`)
-passes-tests = false
-# Default: `true` (if the target is listed in `package.metadata.wasm.rs.targets), otherwise `false`)
-works = true
 # A string that can be used to describe limitations
 limited-functionality = "certain functionality is disabled"
 
