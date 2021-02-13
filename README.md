@@ -25,6 +25,15 @@ required-features = ["wasm"]
 # (default: `[]`)
 unsupported-features = ["server"]
 
+# Indicates the minimum WebAssembly version that must be supported by the host in order for this crate to function properly.
+# (default: `"1.0"`)
+min-wasm-version = "1.0"
+
+# A list of WebAssembly features that must be supported by the host in order for this crate to function properly.
+# The names of the features are the names of the respective GitHub repositories that contain the WebAssembly spec proposals. 
+# (default: `[]`)
+required-wasm-features = ["threads", "simd", "reference-types", "multi-value"]
+
 # The `wasm-readme` field should be the path to a file in the package root (relative to this Cargo.toml) ,
 # that contains information about the package's support for WebAssembly, such as limitations and behavioral differences. 
 # wasm.rs will interpret it as Markdown and render it on the crate's page.
