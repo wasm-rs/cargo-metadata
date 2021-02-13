@@ -15,11 +15,13 @@ In order to signal WebAssembly readiness level, authors can add this section to 
 targets = ["wasm32-unknown-unknown"]
 
 # Flags that are required in order for the crate to work on any WebAssembly target
+# ALL `required-feature-flags` should be specified in order for the crate to work on all WebAssembly targets (AND condition)
 # (default: `[]`)
 required-feature-flags = ["wasm"]
 
 # Flags that WILL NOT work on any WebAssembly target (might not compile, pass test or
 # function correctly)
+# ANY `excluded-feature-flags` should be avoided in order for the crate to work properly on all WebAssembly targets (OR condition)
 # (default: `[]`)
 excluded-feature-flags = ["server"]
 
@@ -35,11 +37,13 @@ works = true
 limited-functionality = "certain functionality is disabled"
 
 # Flags that are required in order for the crate to work on this target
+# Amends, but not overrides `package.metadata.wasm.rs.required-feature-flags`
 # (default: `[]`)
 required-feature-flags = ["wasm-unknown"]
 
 # Flags that WILL NOT work on this target (might not compile, pass test or
 # function correctly)
+# Amends, but not overrides `package.metadata.wasm.rs.excluded-feature-flags`
 # (default: `[]`)
 excluded-feature-flags = ["wasm-emscripten"]
 ```
