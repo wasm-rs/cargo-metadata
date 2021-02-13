@@ -23,5 +23,5 @@ passes-tests = false
 # Default: `true` (if the target is listed in `package.metadata.wasm.rs.targets), otherwise `false`)
 works = true
 # A string that can be used to describe limitations
-limited_functionality = "certain functionality is disabled"
+limited-functionality = "certain functionality is disabled"
 ```
