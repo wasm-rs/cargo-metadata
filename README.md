@@ -14,16 +14,16 @@ In order to signal WebAssembly readiness level, authors can add this section to 
 # Supported targets (default: `[]`)
 targets = ["wasm32-unknown-unknown"]
 
-# Flags that are required in order for the crate to work on any WebAssembly target
-# ALL `required-feature-flags` should be specified in order for the crate to work on all WebAssembly targets (AND condition)
+# Features that are required in order for the crate to work on any WebAssembly target
+# ALL `required-features` should be specified in order for the crate to work on all WebAssembly targets (AND condition)
 # (default: `[]`)
-required-feature-flags = ["wasm"]
+required-features = ["wasm"]
 
-# Flags that WILL NOT work on any WebAssembly target (might not compile, pass test or
+# Features that WILL NOT work on any WebAssembly target (might not compile, pass test or
 # function correctly)
-# ANY `excluded-feature-flags` should be avoided in order for the crate to work properly on all WebAssembly targets (OR condition)
+# ANY `excluded-features` should be avoided in order for the crate to work properly on all WebAssembly targets (OR condition)
 # (default: `[]`)
-excluded-feature-flags = ["server"]
+excluded-features = ["server"]
 
 # This allows to specify fine-grained indication of readiness per target
 [package.metadata.wasm.rs.target.'wasm32-unknown-unknown']
@@ -36,14 +36,14 @@ works = true
 # A string that can be used to describe limitations
 limited-functionality = "certain functionality is disabled"
 
-# Flags that are required in order for the crate to work on this target
-# Amends, but not overrides `package.metadata.wasm.rs.required-feature-flags`
+# Features that are required in order for the crate to work on this target
+# Amends, but not overrides `package.metadata.wasm.rs.required-features`
 # (default: `[]`)
-required-feature-flags = ["wasm-unknown"]
+required-features = ["wasm-unknown"]
 
-# Flags that WILL NOT work on this target (might not compile, pass test or
+# Features that WILL NOT work on this target (might not compile, pass test or
 # function correctly)
-# Amends, but not overrides `package.metadata.wasm.rs.excluded-feature-flags`
+# Amends, but not overrides `package.metadata.wasm.rs.excluded-features`
 # (default: `[]`)
-excluded-feature-flags = ["wasm-emscripten"]
+excluded-features = ["wasm-emscripten"]
 ```
