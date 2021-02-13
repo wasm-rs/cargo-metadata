@@ -25,6 +25,12 @@ required-features = ["wasm"]
 # (default: `[]`)
 unsupported-features = ["server"]
 
+# The `wasm-readme` field should be the path to a file in the package root (relative to this Cargo.toml) ,
+# that contains information about the package's support for WebAssembly, such as limitations and behavioral differences. 
+# wasm.rs will interpret it as Markdown and render it on the crate's page.
+# (This field is optional)
+wasm-readme = "README_WASM.md"
+
 # This allows to specify fine-grained indication of readiness per target
 [package.metadata.wasm.rs.target.'wasm32-unknown-unknown']
 # A string that can be used to describe limitations
