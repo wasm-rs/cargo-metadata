@@ -25,11 +25,30 @@ required-features = ["wasm"]
 # (default: `[]`)
 unsupported-features = ["server"]
 
+# Indicates the minimum WebAssembly version that must be supported by the host in order for this crate to function properly.
+# (default: `"1.0"`)
+min-wasm-version = "1.0"
+
+# A list of WebAssembly features that must be supported by the host in order for this crate to function properly.
+# The names of the features are the names of the respective GitHub repositories that contain the WebAssembly spec proposals. 
+# (default: `[]`)
+required-wasm-features = ["simd", "reference-types", "multi-value"]
+
 # The `wasm-readme` field should be the path to a file in the package root (relative to this Cargo.toml) ,
 # that contains information about the package's support for WebAssembly, such as limitations and behavioral differences. 
 # wasm.rs will interpret it as Markdown and render it on the crate's page.
 # (This field is optional)
 wasm-readme = "README_WASM.md"
+
+# This sections allows specifying dependencies between crate features and WebAssembly features.
+# The names of the features are the names of the respective GitHub repositories that contain the WebAssembly spec proposals. 
+[package.metadata.wasm.rs.features]
+
+# This example indicates that the `parallelization` feature of this crate requires the host to support the `threads` and `bulk-memory-operations` WebAssembly features,
+# and the `global-state` crate feature requires the `mutable-global` WebAssembly feature,
+# in addition to the features specified by the `required-wasm-features` field.
+parallelization = ["threads", "atomics", "bulk-memory-operations"]
+global-state = ["mutable-global"]
 
 # This allows to specify fine-grained indication of readiness per target
 [package.metadata.wasm.rs.target.'wasm32-unknown-unknown']
